@@ -1502,3 +1502,19 @@ if (@full)  { print "yes" }  # PRINTS (3 is true)
 > Athena Health wants for someone transitioning into their Perl stack.
 
 Good luck, Shubnit! 🎯
+
+
+
+
+sub process_team {
+    my ($array_ref, $hash_ref) = @_;
+
+    # Recreate regular array and hash local variables
+    my @local_array = @{ $array_ref };
+    my %local_hash  = %{ $hash_ref };
+
+    # Now you can use standard Perl syntax
+    print "First user: $local_array[0]\n";
+    print "Alice's role: $local_hash{Alice}\n";
+}
+Use code with caution.⚠️ Performance Warning: Copying data using @{ $array_ref } duplicates the items in memory. If your arrays or hashes contain thousands of items, stick to using the arrow operators (->[] and ->{}) to avoid slowing down your script.
